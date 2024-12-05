@@ -2,6 +2,7 @@
 import React from "react";
 import { Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -26,7 +27,7 @@ const About = () => {
     <div className="my-4 content-section">
       <Seo
         title="About Me"
-        description="About Adedoyin Emmanuel Adeniyi - CS, Software Engineer"
+        description="About Christopher Egbaaibon - Mathematics, Software Engineer"
       />
       <br />
       <h1
@@ -35,26 +36,26 @@ const About = () => {
           "lg:text-[50px] text-3xl text-center"
         )}
       >
-        Adedoyin Emmanuel Adeniyi
+        Christopher Egbaaibon
       </h1>
       <br />
 
       <div className="mx-auto flex items-center justify-center">
-        <span className="text-gray-600 mx-1">CS Major </span> @{" "}
+        <span className="text-gray-600 mx-1">Mathematics Major </span> @{" "}
         <Link
-          href={"https://uopeople.edu "}
+          href={"https://unilag.edu.ng"}
           className="underline flex items-end text-center mx-1"
         >
           {" "}
-          University Of The People <ArrowUpRight className="h-5 w-5" />
+          University Of Lagos <ArrowUpRight className="h-5 w-5" />
         </Link>
       </div>
 
       <div className="flex items-center justify-center my-4">
         <div className="lg:flex items-start justify-center lg:gap-6 lg:w-[900px] my-5">
-          <img
-            src={"/emma-3.jpg"}
-            alt="Adedoyin Emmanuel Adeniyi"
+          <Image
+            src={"/chris.jpg"}
+            alt="Christopher Egbaaibon"
             width={400}
             height={600}
             className="rounded-lg mx-auto lg:my-0 my-4"
@@ -62,15 +63,15 @@ const About = () => {
 
           <div className="lg:my-0 my-3">
             <p>
-              I am a Software Engineer with over 4 years of experience and an
-              alumnus of the{" "}
+              I am a Software | DevOps Engineer with over 3 years of experience and an
+              student of the{" "}
               <Link
-                href="https://alxafrica.com"
+                href="https://unilag.edu.ng"
                 className="underline text-blue-500"
               >
-                ALX Software Engineering Program
+                University of Lagos
               </Link>{" "}
-              , currently pursuring a Bachelors degree in Computer Science with
+              , currently pursuring a Bachelors degree in Pure Mathematics with
               a focus on Backend systems and Cloud infrastructure.
             </p>
 
@@ -78,7 +79,7 @@ const About = () => {
 
             <p>
               Currently, I mainly work on Backend Systems
-              (API/Mirco-Services/DB) , Bot Development and Web Scrapping.
+              (API/Mirco-Services/DB), and Cloud Engineering .
             </p>
 
             <br />
@@ -94,22 +95,27 @@ const About = () => {
             <p>
               I am passionate about open source which is why I make most of my side
               projects publicly available. My goal is to help others learn from
-              and use the tools I create. I've built serveral libraries, SDKs,
-              CLI tools & BOTs, spanning web-frameworks, payment gateways,
-              automation and bot development. You can find all my projects on
-              GitHub.{" "}
+              and use the tools I create. I co-built {" "} 
               <Link
-                href="https://alxafrica.com"
+                href="https://dolphjs.com"
                 className="underline text-blue-500"
               >
-                Github - @adedoyin-emmanuel
+                DolphJS
+              </Link>{" "},
+              A Javascript / Typescript framework for building backend applications. You can find all my projects on
+              GitHub.{" "}
+              <Link
+                href="https://github.com/chrisegbaaaibon"
+                className="underline text-blue-500"
+              >
+                Github - @chrisegbaaaibon
               </Link>{" "}
             </p>
 
             <Separator className="my-5" />
 
             <p>
-              In my free time, I enjoy playing Call Of Duty and Racing Games.{" "}
+              In my free time, I enjoy playing efootbal and watching Netflix.{" "}
             </p>
 
             <Link href={"/projects"}>

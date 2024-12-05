@@ -35,7 +35,7 @@ const Seo = ({ title, description, image, url, keywords }: SeoProps) => {
       />
       <meta property="og:url" content={url ?? siteConfig.domain} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Adedoyin Emmanuel Adeniyi" />
+      <meta property="og:site_name" content="Christopher Egbaaibon" />
 
       <meta property="twitter:title" content={title ?? siteConfig.headline} />
       <meta
@@ -45,21 +45,21 @@ const Seo = ({ title, description, image, url, keywords }: SeoProps) => {
       <meta name="twitter:title" content={title ?? siteConfig.headline} />
       <meta name="twitter:image" content={image ?? siteConfig.image} />
       <meta name="twitter:image:src" content={image ?? siteConfig.image} />
-      <meta name="twitter:site" content="@Emmysoft_Tm" />
+      <meta name="twitter:site" content="@ghostcod3r_" />
 
       <meta property="twitter:url" content={url ?? siteConfig.domain} />
       <meta property="twitter:type" content="website" />
-      <meta name="twitter:site" content="@emmysoft_tm" />
+      <meta name="twitter:site" content="@ghostcod3r_" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@emmysoft_tm" />
+      <meta name="twitter:creator" content="@ghostcod3r_" />
 
       <link rel="icon" href="/favicon.ico" />
 
 
       <meta name="msapplication-TileColor" content="#000" />
       <meta name="theme-color" content="#527ff1" />
-      <meta name="application-name" content="Adedoyin Emmanuel" />
-      <meta name="msapplication-TileImage" content="/emmysoft.png" />
+      <meta name="application-name" content="Christopher Egbaaibon" />
+      <meta name="msapplication-TileImage" content="/Creator.svg" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="mobile-web-app-capable" content="yes" />

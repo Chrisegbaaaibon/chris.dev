@@ -1,6 +1,7 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Twitter, Linkedin, Github, X, ArrowUpRight } from "lucide-react";
 import { Drawer } from "vaul";
@@ -17,16 +18,16 @@ const Navbar = () => {
       <Link href={"/"} className="w-full">
         <div className="flex items-center w-full">
           <div className="">
-            <img
-              src="/emmysoft.png"
-              alt="@Adedoyin-Emmanuel"
+            <Image
+              src="/Creator.svg"
+              alt="@Ghostcod3r"
               className="rounded-full"
               width={40}
               height={40}
             />
           </div>
           <div className="mx-2">
-            <h3 className="font-bold text-[0.89rem]">Adedoyin Emmanuel</h3>
+            <h3 className="font-bold text-[0.89rem]">Christopher Egbaaibon</h3>
             <p className="text-[0.74rem] text-[#8e8e8e] py-0 md-1">
               Software Engineer
             </p>
@@ -141,17 +142,17 @@ const Navbar = () => {
                 <Separator className="mt-3" />
 
                 <li className="hover:text-[#5A83ED] transition-colors ease-in-out underline block">
-                  <Link href={"https://x.com/Emmysoft_Tm"}>Twitter </Link>
+                  <Link href={"https://x.com/ghostcod3r_"}>Twitter </Link>
                 </li>
 
                 <li className="hover:text-[#5A83ED] transition-colors ease-in-out underline block">
-                  <Link href={"https://github.com/Adedoyin-Emmanuel"}>
+                  <Link href={"https://github.com/chrisegbaaaibon"}>
                     Github{" "}
                   </Link>
                 </li>
 
                 <li className="hover:text-[#5A83ED] transition-colors ease-in-out underline block">
-                  <Link href={"https://linkedin.com/in/Adedoyin-Emmanuel"}>
+                  <Link href={"https://www.linkedin.com/in/christopher-egbaaibon-02701120a"}>
                     Linkedin{" "}
                   </Link>
                 </li>

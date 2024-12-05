@@ -26,7 +26,7 @@ const Home = () => {
     <div className="my-4">
       <Seo
         title="Home"
-        description="Engineering Seamless Experiences for the Digital Age"
+        description="Building Scalable Backend Systems, Managing Cloud Infrastructure."
       />
       <br />
 
@@ -34,52 +34,34 @@ const Home = () => {
         <h1
           className={cn(playFairDisplay.className, "lg:text-[50px] text-3xl")}
         >
-          Engineering Seamless User Experiences.
+          Christopher Egbaaibon
         </h1>
         <br />
         <br />
 
         <div className="lg:text-[20px] text-[15px]">
           <p>
-            I build Scalable Backend Systems, Engaging User Interfaces,
-            Intelligent Bots & Web Scrapers for Automation. Creator of{" "}
+            I build Scalable Backend Systems, manage Cloud Infrastructures, and more...{" "}
+            <br />
             <span className="flex items-center gap-x-3 flex-wrap">
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/methane-cli">
-                Methane-Cli
-              </ColoredLink>
-              <ColoredLink href="https://fotograph.vercel.app">
-                Fotograph
-              </ColoredLink>
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/telebot">
-                Telebot
-              </ColoredLink>
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/squad-js-sdk">
-                Squad-Js-SDK
-              </ColoredLink>
-
-              <ColoredLink href="https://codesharp.adedoyin.dev">
-                Codesharp
-              </ColoredLink>
-
-              <ColoredLink href="https://holytab.adedoyin.dev">
-                HolyTab
+            Creator of: {" "}
+              <ColoredLink href="https://dolphjs.com">
+                DolphJs
               </ColoredLink>
             </span>
           </p>
-
           <br />
           <p>
-            Software Engineer - Building scalable Backend Systems, Crafting
-            Engaging User Interfaces, Intelligent Bots & Web Scrapers for
-            Automation.
+            Software | DevOps Engineer - Building scalable Backend Systems, managing Cloud Infrastructures.
           </p>
 
           <br />
-          <p>You can do great things from a small place.</p>
+          <p>Just keep building.</p>
 
           <br />
 
-          <Link href={"/Adedoyin-Emmanuel-Resume.pdf"} target="_blank">
+
+          <Link href={"/christopher_devops.pdf"} target="_blank">
             <button className="rounded-[30px] my-4 border hover:bg-black transition-all duration-400 ease-in hover:text-white border-black p-2 w-40 flex items-center justify-center">
               Resume <ArrowUpRight strokeWidth={1.5} />
             </button>

@@ -19,116 +19,29 @@ const Projects = () => {
 
   const projects = [
     {
-      name: "Holytab",
-      tag: "Extension",
-      description:
-        "Fresh, Bible-centered confession on every new tab. Stay inspired and rooted in faith throughout your day",
-      languages: ["TypeScript", "JavaScript", "Chrome Extension"],
-      url: "https://holytab.adedoyin.dev",
-    },
-    {
-      name: "Codesharp",
-      tag: "Extension",
-      description:
-        "Code Sharp is a VsCode extension tailored for .NET developers, designed to simplify the creation of C# files.",
-      languages: ["TypeScript", "C#", "JavaScript"],
-      url: "https://codesharp.adedoyin.dev",
-    },
-    {
-      name: "Methane CLI",
-      tag: "CLI",
-      description:
-        "Methane is a CLI tool that helps developers easily create React components, pages or NextJS components, pages, dynamic pages and service worker files with boilerplate codes. It also comes with extra configuration that allows you to choose either JavaScript or TypeScript templates.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/methane-cli",
-    },
-    {
-      name: "Telebot",
-      tag: "Bot",
-      description:
-        "Telebot is a telegram bot starter kit. Built on the Telegraf Framework. This template allows you to build small simple bots to complex bots with ease.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/telebot",
-    },
-    {
-      name: "Squad JS SDK",
-      tag: "SDK",
-      description:
-        "Squad JavaScript SDK provides a convenient interface for interacting with Squad Payment Gateway in your applications.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/squad-js-sdk",
-    },
-    {
-      name: "Fotograph",
+      name: "Notch For Windows",
       tag: "Desktop App",
       description:
-        "Fotograph is an open source powerful image manipulation software with a variety of tools for image conversion, bulk image downloading, AI-based image generation, background removal, image resizing, and compression.",
-      languages: ["TypeScript"],
-      url: "https://fotograph.vercel.app",
+        "Notch is a simpe overlay desktop app that works like ios dynamic island. Control your music, check dates and time, and more.",
+      languages: ["Python"],
+      url: "",
     },
     {
-      name: "Book Management API",
-      tag: "API",
+      name: "Dolphjs",
+      tag: "CLI",
       description:
-        "A simple API with ASP.NET to learn AutoMapper, Repository Pattern and Unit of Work.",
-      languages: ["C#"],
-      url: "https://github.com/adedoyin-emmanuel/book-management-api",
+        "Dolphjs is a backend javascript/TypeScript framework that helps developers build scalable and maintainable backend applications with ease.",
+      languages: ["TypeScript", "JavaScript"],
+      url: "https://dolphjs.com",
     },
     {
-      name: "Caresync API",
-      tag: "API",
-      description:
-        "CareSync API, an application bridging healthcare with technology.",
-      languages: ["TypeScript"],
-      url: "https://gitlab.com/adedoyin-emmanuel/caresync-api",
-    },
-    {
-      name: "Caresync",
+      name: "Vottex AI",
       tag: "Web App",
       description:
-        "CareSync is a web application that helps patients and doctors manage their health records and appointments.",
-      languages: ["TypeScript", "NextJS", "DaisyUI"],
-      url: "https://gitlab.com/adedoyin-emmanuel/caresync",
-    },
-    {
-      name: "Flames",
-      tag: "Web App",
-      description:
-        "Flames is a web application that helps users check their compatibility with their crushes.",
-      languages: ["TypeScript", "NextJS", "ShadcnUI"],
-      url: "https://flames.brimble.app",
-    },
-    {
-      name: "Linq",
-      tag: "Web App",
-      description:
-        "Linq is an open-source tool that simplifies social sharing by allowing users to generate shareable links for their content.",
-      languages: ["TypeScript", "NextJS", "ShadcnUI"],
-      url: "https://uselinq.vercel.app",
-    },
-    {
-      name: "Blazor Weather App",
-      tag: "Web App",
-      description: "A weather app built with Blazor and OpenWeatherAPI.",
-      languages: ["C#", "Blazor", "DaisyUI"],
-      url: "https://github.com/adedoyin-emmanuel/blazor-weather-app",
-    },
-    {
-      name: "Taskify",
-      tag: "Web App",
-      description:
-        "Taskify is a simple task management application that helps users manage their tasks and to-do lists.",
-      languages: ["C#", "ASP.NET", "DaisyUI", "DOTNET"],
-      url: "https://github.com/adedoyin-emmanuel/taskify",
-    },
-    {
-      name: "Prokeep API",
-      tag: "API",
-      description:
-        "A simple product API built with ASP.NET CORE, Entity Framework, and Postgres SQL.",
-      languages: ["C#", "ASP.NET", "EFCORE", "MYSQL"],
-      url: "https://github.com/adedoyin-emmanuel/prokeep-api",
-    },
+        "Vottex AI is a web application that helps users generate forms and survery questions.",
+      languages: ["TypeScript", "Python", "LangChain"],
+      url: "",
+    }
   ];
 
   const tags = [
@@ -167,10 +80,9 @@ const Projects = () => {
 
       <div className="mx-auto flex items-center justify-center md:w-[600px] mb-4">
         <span className="text-gray-600 mx-1 my-10">
-          "Behind every great solution is a developer who never gave up on a
-          challenging problem." —{" "}
+          "... Just keep building..." —{" "}
           <Link href={"/projects"} className="underline inline text-black">
-            Adedoyin Emmanuel
+            Christopher Egbaaibon
           </Link>
         </span>
       </div>

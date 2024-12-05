@@ -9,16 +9,16 @@ const Footer = () => {
         <span className="text-gray-500">Reach out to me</span>{" "}
         <span className="flex flex-wrap">
           <Link
-            href={"mailto:hi@adedoyinemmanuel.dev"}
+            href={"mailto:egbaaibonc@gmail.com"}
             className="underline flex items-end"
           >
-            hi@adedoyinemmanuel.dev <ArrowUpRight className="h-5 w-5" />
+            egbaaibonc@gmail.com <ArrowUpRight className="h-5 w-5" />
           </Link>{" "}
           <Link
-            href={"mailto:adedoyinemmanuel@my.uopeople.edu"}
+            href={"mailto:christopheregbaaibon@gmail.com"}
             className="underline flex items-end"
           >
-            adedoyinemmanuel@my.uopeople.edu{" "}
+            christopheregbaaibon@gmail.com{" "}
             <ArrowUpRight className="h-5 w-5" />
           </Link>
         </span>
@@ -26,21 +26,21 @@ const Footer = () => {
 
       <div className="flex items-center gap-4 my-5">
         <Link
-          href={"https://github.com/adedoyin-emmanuel"}
+          href={"https://github.com/chrisegbaaibon"}
           className="underline flex items-end"
         >
           Github <ArrowUpRight className="h-5 w-5" />
         </Link>
 
         <Link
-          href={"https://linkedin.com/in/adedoyin-emmanuel"}
+          href={"https://www.linkedin.com/in/christopher-egbaaibon-02701120a"}
           className="underline flex items-end"
         >
           Linkedin <ArrowUpRight className="h-5 w-5" />
         </Link>
 
         <Link
-          href={"https://twitter.com/Emmysoft_Tm"}
+          href={"https://twitter.com/ghostcod3r_"}
           className="underline flex items-end"
         >
           Twitter <ArrowUpRight className="h-5 w-5" />

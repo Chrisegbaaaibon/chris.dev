@@ -1,9 +1,9 @@
 export const siteConfig = {
-  domain: "https://adedoyinemmanuel.dev",
-  name: "Adedoyin Emmanuel - Software Engineer",
-  headline: "Adedoyin Emmanuel  | Software Engineer | CS",
-  description: "About Adedoyin Emmanuel Adeniyi - CS, Software Engineer",
+  domain: "",
+  name: "Christopher Egbaaibon - Software / DevOps Engineer",
+  headline: "Christipher Egbaaibon  | Software / DevOps Engineer | Mathematics",
+  description: "About Christopher Egbaaibon - Math, Software /  DevOps Engineer",
   keywords:
-    "adedoyin, adedoyin emmanuel, software engineer",
-  image: "https://adedoyinemmanuel.dev/emma-3.jpg",
+    "Christopher, Christopher Egbaaibon, software engineer",
+  image: "",
 };

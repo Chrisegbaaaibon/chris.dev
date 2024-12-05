@@ -11,8 +11,8 @@ const gtAmericaRegular = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Adedoyin Emmanuel - Software Engineer",
-  description: "Software Engineer, CS",
+  title: "Christopher Egbaaibon - Software | DevOps Engineer",
+  description: "Software Engineer, Math",
 };
 
 export default function RootLayout({
