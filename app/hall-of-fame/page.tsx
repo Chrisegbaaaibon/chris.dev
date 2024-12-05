@@ -240,6 +240,8 @@ const HallOfFame = () => {
         </button>
       </section>
 
+      <Separator className="my-6" />
+
       {/* Experience */}
 
       <section className="mb-8">
