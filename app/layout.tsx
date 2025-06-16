@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
+import LinguWidget from "@/app/components/lingu-widget";
 import { cn } from "@/lib/utils";
 import {GoogleAnalytics } from "@next/third-parties/google";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           <br />
           <Footer />
         </div>
+        <LinguWidget apiKey="lingu-63b1967f3e78b404d7545f860f787d136f5b482e56ea32941bd554ef2b08c4dd" />
       </body>
     </html>
   );
