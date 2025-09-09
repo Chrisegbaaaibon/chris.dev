@@ -11,7 +11,7 @@ interface LinguWidgetProps {
 
 const LinguWidget = ({ 
   apiKey, 
-  baseURL = 'https://lingu.vodertech.com/api',
+  baseURL = 'https://api.uselingu.app/api',
   className = "lingu-chat-container" 
 }: LinguWidgetProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
