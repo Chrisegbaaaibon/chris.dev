@@ -1,97 +1,28 @@
-"use client";
-import React, { useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
-import Script from 'next/script';
+'use client';
 
-interface LinguWidgetProps {
-  apiKey: string;
-  baseURL?: string;
-  className?: string;
-}
+import { useEffect } from 'react';
 
-const LinguWidget = ({ 
-  apiKey, 
-  baseURL = 'https://api.uselingu.app/api',
-  className = "lingu-chat-container" 
-}: LinguWidgetProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const widgetInstanceRef = useRef<any>(null);
-  const scriptLoadedRef = useRef(false);
-
-  const initializeWidget = () => {
-    if (!containerRef.current || !apiKey || !(window as any).LinguWidget || scriptLoadedRef.current) return;
-    
-    try {
-      // Clean up existing widget if any
-      if (widgetInstanceRef.current) {
-        widgetInstanceRef.current.destroy?.();
-      }
-
-      // Create new widget instance
-      widgetInstanceRef.current = new (window as any).LinguWidget({
-        apiKey,
-        baseURL
-      });
-
-      // Mount the widget
-      widgetInstanceRef.current.mount(containerRef.current.id);
-      scriptLoadedRef.current = true;
-    } catch (error) {
-      console.error('Failed to initialize Lingu widget:', error);
-    }
-  };
-
+export default function LinguWidget() {
   useEffect(() => {
-    // Make React and ReactDOM available globally for the UMD widget
-    if (typeof window !== 'undefined') {
-      (window as any).React = React;
-      (window as any).ReactDOM = ReactDOM;
-    }
+    if (document.getElementById('lingu-widget-script')) return;
 
-    // Set unique container ID
-    if (containerRef.current) {
-      containerRef.current.id = `lingu-chat-${Math.random().toString(36).substr(2, 9)}`;
-    }
+    const script = document.createElement('script');
+    script.id = 'lingu-widget-script';
+    script.src = 'https://chrisegbaaaibon.github.io/lingu/index.mjs';
+    script.type = 'module'; // mjs needs module
+    script.async = true;
+    script.defer = true;
 
-    // Initialize if script is already loaded
-    if ((window as any).LinguWidget) {
-      initializeWidget();
-    }
+    // Required config
+    script.setAttribute('data-api-key', process.env.NEXT_PUBLIC_LINGU_API_KEY || '');
 
-    return () => {
-      if (widgetInstanceRef.current) {
-        widgetInstanceRef.current.destroy?.();
-        widgetInstanceRef.current = null;
-      }
-      scriptLoadedRef.current = false;
-    };
-  }, [apiKey, baseURL]);
+    // Optional config
+    // script.setAttribute('data-language', 'en');
+    // script.setAttribute('data-theme', 'light');
+    // script.setAttribute('data-position', 'bottom-right');
 
-  return (
-    <>
-      <Script
-        src="https://chrisegbaaaibon.github.io/lingu/index.umd.js"
-        strategy="afterInteractive"
-        onLoad={initializeWidget}
-        onError={(e) => {
-          console.error('Failed to load Lingu widget script:', e);
-        }}
-      />
-      <div 
-        ref={containerRef}
-        className={className}
-      />
-    </>
-  );
-};
+    document.body.appendChild(script);
+  }, []);
 
-// Type declaration for the global LinguWidget
-declare global {
-  interface Window {
-    LinguWidget: any;
-    React: any;
-    ReactDOM: any;
-  }
+  return null;
 }
-
-export default LinguWidget; 

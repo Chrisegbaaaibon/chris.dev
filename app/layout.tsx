@@ -6,6 +6,7 @@ import Footer from "@/app/components/footer";
 import LinguWidget from "@/app/components/lingu-widget";
 import { cn } from "@/lib/utils";
 import {GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 const gtAmericaRegular = localFont({
   src: "./fonts/GT-America-Regular.otf",
@@ -39,8 +40,23 @@ export default function RootLayout({
           <br />
           <Footer />
         </div>
-        <LinguWidget apiKey="lingu-63b1967f3e78b404d7545f860f787d136f5b482e56ea32941bd554ef2b08c4dd" />
-      </body>
+        <Script id="lingu-config" strategy="beforeInteractive">
+          {`
+            window.linguConfig = {
+              apiKey: 'lingu_521982aca4ed6e89b783733db43891023555afa3156b352c7921c61809474fd2',
+              baseURL: 'https://api.uselingu.app/api', // optional override
+              autoOpen: false, // optional
+              // widgetPosition: 'bottom-left' // optional (bottom-right | bottom-left | top-right | top-left)
+            };
+          `}
+        </Script>
+
+        <Script
+          id="lingu-widget"
+          src="https://chrisegbaaaibon.github.io/lingu/lingu-widget.js"
+          type="module"
+          strategy="afterInteractive"
+        />      </body>
     </html>
   );
 }

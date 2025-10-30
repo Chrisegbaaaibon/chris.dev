@@ -9,10 +9,10 @@ const Footer = () => {
         <span className="text-gray-500">Reach out to me</span>{" "}
         <span className="flex flex-wrap">
           <Link
-            href={"mailto:egbaaibonc@gmail.com"}
+            href={"mailto:chris@uselingu.app"}
             className="underline flex items-end"
           >
-            egbaaibonc@gmail.com <ArrowUpRight className="h-5 w-5" />
+            chris@uselingu.app <ArrowUpRight className="h-5 w-5" />
           </Link>{" "}
           <Link
             href={"mailto:christopheregbaaibon@gmail.com"}
