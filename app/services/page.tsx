@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { ProjectsPage } from "./projects-client";
+import { ServicesPage } from "./services-client";
 import { BreadcrumbJsonLd } from "@/components/json-ld";
 
-const title = "Projects";
+const title = "Services";
 const description =
-  "Featured projects by Christopher Egbaaibon — SaaS platforms, AI-powered tools, open-source frameworks, fintech systems, and production-grade applications.";
+  "Professional engineering services by Christopher Egbaaibon — Backend & API Engineering, Full-Stack Web Applications, DevOps & Cloud Infrastructure, and Technical Architecture & Consulting.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/projects" },
+  alternates: { canonical: "/services" },
   openGraph: {
     title: `${title} | Christopher Egbaaibon`,
     description,
-    url: "/projects",
+    url: "/services",
     type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Christopher Egbaaibon's Projects" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Christopher Egbaaibon's Services" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Projects() {
+export default function Services() {
   return (
     <>
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Projects", href: "/projects" },
+          { name: "Services", href: "/services" },
         ]}
       />
-      <ProjectsPage />
+      <ServicesPage />
     </>
   );
 }

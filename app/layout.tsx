@@ -1,62 +1,146 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
-import LinguWidget from "@/app/components/lingu-widget";
-import { cn } from "@/lib/utils";
-import {GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { CursorGlow } from "@/components/cursor-glow";
+import { JsonLd } from "@/components/json-ld";
+import { siteConfig } from "@/lib/data";
 
-const gtAmericaRegular = localFont({
-  src: "./fonts/GT-America-Regular.otf",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
+const BASE_URL = siteConfig.url;
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0B0B0C" },
+    { media: "(prefers-color-scheme: light)", color: "#F5F5F5" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: "Christopher Egbaaibon - Software | DevOps Engineer",
-  description: "Software Engineer, Math",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Christopher Egbaaibon — Full-Stack Engineer & Software Architect",
+    template: "%s | Christopher Egbaaibon",
+  },
+  description:
+    "Full-Stack Engineer, Backend Specialist, DevOps Engineer & Software Architect. Building scalable systems, high-performance APIs & production-ready platforms.",
+  keywords: [
+    "Christopher Egbaaibon",
+    "Full-Stack Engineer",
+    "Backend Engineer",
+    "DevOps Engineer",
+    "Software Architect",
+    "Node.js",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Software Developer",
+    "API Development",
+    "Cloud Infrastructure",
+    "System Design",
+    "Portfolio",
+  ],
+  authors: [{ name: "Christopher Egbaaibon", url: BASE_URL }],
+  creator: "Christopher Egbaaibon",
+  publisher: "Christopher Egbaaibon",
+  category: "technology",
+  classification: "Software Engineering Portfolio",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: BASE_URL,
+    title: "Christopher Egbaaibon — Full-Stack Engineer & Software Architect",
+    description:
+      "Building scalable systems, high-performance APIs & production-ready platforms.",
+    siteName: "Christopher Egbaaibon",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Christopher Egbaaibon — Full-Stack Engineer & Software Architect",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christopher Egbaaibon — Full-Stack Engineer & Software Architect",
+    description:
+      "Building scalable systems, high-performance APIs & production-ready platforms.",
+    images: ["/og-image.png"],
+    creator: "@chrisegbaaibon",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={cn(
-          gtAmericaRegular.className,
-          "md:container md:mx-auto overflow-x-hidden"
-        )}
+        className={`${inter.variable} ${jetbrains.variable} font-sans bg-deep text-off-white antialiased`}
       >
-        <GoogleAnalytics gaId="G-WTPMMSFEEP" />
-        <Navbar />
-        <div className="w-full p-3">
-          {children}
+        <JsonLd type="website" />
 
-          <br />
-          <br />
-          <br />
-          <Footer />
+        {/* Background gradient */}
+        <div className="fixed inset-0 -z-10">
+          <div className="absolute inset-0 bg-deep" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-chrome-dark/5 rounded-full blur-[128px]" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-chrome-dark/3 rounded-full blur-[128px]" />
         </div>
-        <Script id="lingu-config" strategy="beforeInteractive">
-          {`
-            window.linguConfig = {
-              apiKey: 'lingu_521982aca4ed6e89b783733db43891023555afa3156b352c7921c61809474fd2',
-              baseURL: 'https://api.uselingu.app/api', // optional override
-              autoOpen: false, // optional
-              // widgetPosition: 'bottom-left' // optional (bottom-right | bottom-left | top-right | top-left)
-            };
-          `}
-        </Script>
 
-        <Script
-          id="lingu-widget"
-          src="https://chrisegbaaaibon.github.io/lingu/lingu-widget.js"
-          type="module"
-          strategy="afterInteractive"
-        />      </body>
+        <CursorGlow />
+        <Navbar />
+        <main className="pt-20 min-h-screen">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

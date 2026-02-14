@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0B0C"/>
+      <stop offset="50%" style="stop-color:#111214"/>
+      <stop offset="100%" style="stop-color:#0B0B0C"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C0C0C0"/>
+      <stop offset="25%" style="stop-color:#F5F5F5"/>
+      <stop offset="50%" style="stop-color:#A8A9AD"/>
+      <stop offset="75%" style="stop-color:#F5F5F5"/>
+      <stop offset="100%" style="stop-color:#C0C0C0"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="50%" style="stop-color:rgba(192,192,192,0.4)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="white" stroke-width="1" transform="translate(64,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="white" stroke-width="1" transform="translate(128,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="white" stroke-width="1" transform="translate(192,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="white" stroke-width="1" transform="translate(256,0)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="white" stroke-width="1" transform="translate(0,64)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="white" stroke-width="1" transform="translate(0,128)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="white" stroke-width="1" transform="translate(0,192)"/>
+  </g>
+  
+  <!-- Radial glow -->
+  <circle cx="900" cy="315" r="300" fill="rgba(168,169,173,0.04)"/>
+  
+  <!-- Top line -->
+  <rect x="80" y="80" width="120" height="2" fill="url(#chrome)" rx="1"/>
+  
+  <!-- Name -->
+  <text x="80" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="white" letter-spacing="-1">Christopher</text>
+  <text x="80" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="url(#chrome)" letter-spacing="-1">Egbaaibon</text>
+  
+  <!-- Divider -->
+  <rect x="80" y="375" width="200" height="1" fill="url(#line)"/>
+  
+  <!-- Role -->
+  <text x="80" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#A3A3A3" letter-spacing="0.5">Full-Stack Engineer &amp; Software Architect</text>
+  
+  <!-- Description -->
+  <text x="80" y="465" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#737373" letter-spacing="0.3">Building scalable systems, high-performance APIs</text>
+  <text x="80" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#737373" letter-spacing="0.3">&amp; production-ready platforms.</text>
+  
+  <!-- URL -->
+  <text x="80" y="560" font-family="monospace" font-size="14" fill="#525252" letter-spacing="1">chrisdev-two.vercel.app</text>
+  
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="rgba(192,192,192,0.1)" stroke-width="1"/>
+</svg>
