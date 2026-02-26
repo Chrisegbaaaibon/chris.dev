@@ -35,11 +35,26 @@ export const navigation = [
 export const experiences = {
   engineering: [
     {
+      company: "Rewrd",
+      role: "Senior Software Engineer",
+      period: "2025 – Present",
+      description: "Collaborated with founding team to build and scale loyalty platform and API services for a merchants and consumer rewards application.",
+      tech: ["Typescript", "Node.js", "PostgreSQL", "Docker", "Redis"],
+    },
+    {
+      company: "Crosskudi",
+      role: "Technical Co-Founder & CTO",
+      period: "2025 - Present",
+      description:
+        "Leading the technical vision and architecture for a fintech startup focused on financial inclusion. Building core product features, API services, and cloud infrastructure.",
+      tech: ["TypeScript", "Node.js", "MongoDB", "GCP", "React", "Docker"],
+    },
+    {
       company: "Lumofy",
       role: "Software Developer",
-      period: "2025 – Present",
+      period: "2025",
       description:
-        "Building scalable education technology platforms and contributing to core product features, API development, and infrastructure improvements.",
+        "Built scalable HR technology platforms and contributing to core product features, API development, and infrastructure improvements.",
       tech: ["TypeScript", "Node.js", "React", "PostgreSQL", "AWS"],
     },
     {
@@ -48,7 +63,7 @@ export const experiences = {
       period: "Contract",
       description:
         "Engineered internal tools, trading dashboards, and real-time data pipelines. Optimized performance for high-frequency financial operations.",
-      tech: ["TypeScript", "Node.js", "Redis", "Docker", "MongoDB"],
+      tech: ["TypeScript", "Node.js", "Redis", "Docker", "MongoDB", "Typesense"],
     },
     {
       company: "Mbag Microfinance",
