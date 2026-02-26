@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Christopher Egbaaibon — Full-Stack Engineer & Software Architect",
   description:
     "Full-Stack Engineer, Backend Specialist, DevOps Engineer & Software Architect. Building scalable systems, high-performance APIs & production-ready platforms.",
-  url: "https://chrisdev-two.vercel.app",
+  url: "https://chris.egbaaibon.com",
   links: {
     github: "https://github.com/chrisegbaaaibon",
     linkedin: "https://linkedin.com/in/christopher-egbaaibon",

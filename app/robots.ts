@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://chrisdev-two.vercel.app/sitemap.xml",
-    host: "https://chrisdev-two.vercel.app",
+    sitemap: "https://chris.egbaaibon.com/sitemap.xml",
+    host: "https://chris.egbaaibon.com",
   };
 }
