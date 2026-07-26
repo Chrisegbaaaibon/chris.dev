@@ -1,0 +1,185 @@
+/* ============================================================
+   Runbook, site admin. Scoped to .admin so the public sheet in
+   app/globals.css keeps its own table and button scales.
+   ============================================================ */
+
+.admin{font-size:16px;line-height:1.45}
+.admin .m{font-family:var(--mono)}
+
+.admin .app{display:grid;grid-template-columns:14rem minmax(0,1fr);min-height:100vh}
+
+/* ---- sidebar ---- */
+.admin .side{border-right:1px solid var(--ink);padding:1.1rem 1.1rem 2rem;display:flex;flex-direction:column;gap:1.5rem}
+.admin .brand{font-weight:800;font-size:.95rem;letter-spacing:-.01em;padding-bottom:1rem;border-bottom:1px solid var(--rule)}
+.admin .brand span{display:block;font-family:var(--mono);font-size:.6rem;font-weight:400;color:var(--ink-40);letter-spacing:.06em;margin-top:.25rem}
+.admin .side nav{display:flex;flex-direction:column;gap:.1rem}
+.admin .side nav a,.admin .side nav button{
+  display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  text-decoration:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.02em;
+  padding:.45rem .5rem;color:var(--ink-60);border-left:2px solid transparent;
+  background:none;border-top:0;border-right:0;border-bottom:0;width:100%;text-align:left;cursor:pointer;
+}
+.admin .side nav a:hover,.admin .side nav button:hover{background:var(--paper-2);color:var(--ink)}
+.admin .side nav a.on,.admin .side nav button.on{background:var(--ink);color:var(--paper);border-left-color:var(--signal)}
+.admin .side nav a .c,.admin .side nav button .c{font-size:.62rem;opacity:.65}
+.admin .side nav button.on .c.alert{opacity:1;color:#fff;background:var(--signal);padding:0 .3rem}
+.admin .side .grp{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-40);padding:.9rem .5rem .3rem}
+.admin .side .foot{margin-top:auto;font-family:var(--mono);font-size:.62rem;color:var(--ink-40);line-height:1.7;border-top:1px solid var(--rule);padding-top:.8rem}
+.admin .side .foot a{color:var(--signal);text-decoration:none}
+
+/* ---- main ---- */
+.admin .main{padding:1.1rem clamp(1rem,2.6vw,2.2rem) 3rem;min-width:0}
+.admin .bar{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-bottom:.9rem;border-bottom:1px solid var(--ink)}
+.admin .bar h1{font-size:1.5rem;font-weight:700;letter-spacing:-.025em}
+.admin .bar .when{font-family:var(--mono);font-size:.66rem;color:var(--ink-40)}
+.admin .btn{
+  display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;cursor:pointer;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.02em;
+  padding:.5rem .8rem;border:1px solid var(--ink);background:transparent;color:var(--ink);
+}
+.admin .btn:hover{background:var(--ink);color:var(--paper)}
+.admin .btn.fill{background:var(--signal);border-color:var(--signal);color:#fff}
+.admin .btn.fill:hover{background:var(--ink);border-color:var(--ink)}
+.admin .btn.sm{padding:.3rem .55rem;font-size:.62rem}
+.admin .btn.danger{border-color:var(--signal);color:var(--signal)}
+.admin .btn.danger:hover{background:var(--signal);color:#fff}
+.admin .btn:disabled{opacity:.4;cursor:not-allowed}
+.admin .btn:disabled:hover{background:transparent;color:var(--ink)}
+
+.admin .notice{
+  margin-top:1.1rem;border-left:2px solid var(--signal);background:var(--panel);
+  padding:.75rem 1rem;font-size:.86rem;color:var(--ink-60);
+  display:flex;gap:1rem;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+}
+.admin .notice b{color:var(--ink);font-weight:600}
+.admin .notice.done{border-left-color:var(--go)}
+.admin .notice.done b{color:var(--go)}
+
+/* counters row, no cards: hanging numbers on rules */
+.admin .counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));border-top:1px solid var(--ink);margin-top:1.4rem}
+.admin .counts div{padding:.9rem 1rem .9rem 0;border-right:1px solid var(--rule)}
+.admin .counts div:last-child{border-right:none}
+.admin .counts .v{font-size:1.9rem;font-weight:700;letter-spacing:-.03em;line-height:1}
+.admin .counts .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-40);margin-top:.4rem}
+.admin .counts .d{font-family:var(--mono);font-size:.6rem;color:var(--ink-60);margin-top:.2rem}
+.admin .counts .d.up{color:var(--go)}
+
+.admin .cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:2rem;margin-top:2rem;align-items:start}
+
+.admin .blk{border-top:1px solid var(--ink);padding-top:.7rem}
+.admin .blk-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.7rem}
+.admin .blk-head h2{font-size:1rem;font-weight:700}
+.admin .blk-head .m{font-size:.62rem;color:var(--ink-40);letter-spacing:.05em}
+
+.admin table{width:100%;border-collapse:collapse;font-size:.85rem}
+.admin th{
+  text-align:left;font-family:var(--mono);font-size:.58rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-40);
+  padding:0 .8rem .45rem 0;border-bottom:1px solid var(--rule-strong);
+}
+.admin td{padding:.6rem .8rem .6rem 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.admin tr:hover td{background:var(--panel)}
+.admin td.t{font-weight:600}
+.admin td.mm{font-family:var(--mono);font-size:.68rem;color:var(--ink-60);white-space:nowrap}
+.admin .state{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .4rem;border:1px solid currentColor;white-space:nowrap}
+.admin .state.live{color:var(--go)}
+.admin .state.draft{color:var(--wait)}
+.admin .state.todo{color:var(--signal)}
+.admin button.state{cursor:pointer;background:transparent}
+.admin button.state:hover{border-style:dashed}
+.admin .row-act{text-align:right;white-space:nowrap}
+.admin .row-act .btn+.btn{margin-left:.3rem}
+
+/* enquiries as a stack of letters, not cards */
+.admin .inbox{list-style:none}
+.admin .inbox li{border-bottom:1px solid var(--rule);padding:.75rem 0;display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:.7rem}
+.admin .inbox .who{font-family:var(--mono);font-size:.62rem;color:var(--paper);background:var(--ink);width:1.9rem;height:1.9rem;display:grid;place-items:center}
+.admin .inbox .unread .who{background:var(--signal)}
+.admin .inbox h3{font-size:.9rem;font-weight:600;display:flex;justify-content:space-between;gap:.6rem}
+.admin .inbox h3 time{font-family:var(--mono);font-size:.6rem;color:var(--ink-40);font-weight:400;white-space:nowrap}
+.admin .inbox p{font-size:.82rem;color:var(--ink-60);margin-top:.2rem;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.admin .inbox p.full{display:block;overflow:visible}
+.admin .inbox .tags{margin-top:.35rem;display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+.admin .inbox .tags span,.admin .inbox .tags button{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:var(--ink-60);border:1px solid var(--rule-strong);padding:.1rem .35rem}
+.admin .inbox .tags button{background:transparent;cursor:pointer}
+.admin .inbox .tags button:hover{border-color:var(--ink);color:var(--ink)}
+.admin .inbox .tags button[aria-pressed="true"]{background:var(--signal);border-color:var(--signal);color:#fff}
+.admin .inbox .open-row{width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:inherit;font:inherit}
+.admin .inbox .acts{margin-top:.5rem;display:flex;gap:.35rem;flex-wrap:wrap}
+
+/* queue */
+.admin .queue{list-style:none;font-size:.85rem}
+.admin .queue li{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px dotted var(--rule);align-items:baseline}
+.admin .queue .box{width:.75rem;height:.75rem;border:1px solid var(--ink);flex:none;position:relative;top:.15rem;background:transparent;cursor:pointer;padding:0}
+.admin .queue .box.done{background:var(--ink)}
+.admin .queue li.done span{color:var(--ink-40);text-decoration:line-through}
+.admin .queue .m{margin-left:auto;font-size:.6rem;color:var(--ink-40);white-space:nowrap}
+.admin .queue .txt{cursor:pointer;text-align:left;background:none;border:0;font:inherit;color:inherit;padding:0}
+.admin .queue .kill{background:none;border:0;cursor:pointer;color:var(--ink-40);font-family:var(--mono);font-size:.7rem;padding:0 .1rem}
+.admin .queue .kill:hover{color:var(--signal)}
+
+/* traffic bars drawn with divs, no chart lib */
+.admin .bars{display:flex;align-items:flex-end;gap:3px;height:5.5rem;margin-top:.6rem;border-bottom:1px solid var(--rule-strong);padding-bottom:2px}
+.admin .bars i{flex:1;background:var(--rule-strong);display:block;position:relative}
+.admin .bars i.hi{background:var(--signal)}
+.admin .bars i:hover{background:var(--ink)}
+.admin .bar-key{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.58rem;color:var(--ink-40);margin-top:.35rem}
+.admin .pagelist{list-style:none;margin-top:1rem;font-size:.82rem}
+.admin .pagelist li{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px solid var(--rule)}
+.admin .pagelist .m{font-size:.68rem;color:var(--ink-60)}
+.admin .readout{font-family:var(--mono);font-size:.6rem;color:var(--ink-60);margin-top:.4rem;min-height:1.2em}
+.admin .readout b{color:var(--ink);font-weight:600}
+
+/* ---- form controls, same hairline language ---- */
+.admin input[type="text"],.admin input[type="search"],.admin select,.admin textarea{
+  font-family:var(--mono);font-size:.7rem;color:var(--ink);background:var(--panel);
+  border:1px solid var(--rule-strong);padding:.4rem .5rem;width:100%;
+}
+.admin input:focus,.admin select:focus,.admin textarea:focus{outline:none;border-color:var(--signal)}
+.admin textarea{line-height:1.6;resize:vertical}
+.admin .field{display:flex;flex-direction:column;gap:.25rem}
+.admin .field label{font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-40)}
+.admin .editor{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.7rem;padding:.9rem 0;background:var(--panel)}
+.admin .editor .wide{grid-column:1/-1}
+.admin .editor-acts{grid-column:1/-1;display:flex;gap:.4rem;justify-content:flex-end}
+.admin .toolbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.8rem}
+.admin .toolbar input[type="search"]{max-width:14rem}
+.admin .toolbar .spacer{margin-left:auto}
+.admin .tabs{display:flex;gap:.35rem;flex-wrap:wrap}
+.admin .tabs button{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.04em;padding:.25rem .5rem;
+  border:1px solid var(--rule-strong);background:transparent;color:var(--ink-60);cursor:pointer;
+}
+.admin .tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.admin .tabs button[aria-selected="true"],.admin .tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.admin .empty{font-family:var(--mono);font-size:.68rem;color:var(--ink-40);padding:1.4rem 0;border-bottom:1px solid var(--rule)}
+
+/* settings rows */
+.admin .setting{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.admin .setting h3{font-size:.88rem;font-weight:600}
+.admin .setting p{font-size:.78rem;color:var(--ink-60);margin-top:.15rem;max-width:52ch}
+.admin .switch{
+  flex:none;width:2.4rem;height:1.2rem;border:1px solid var(--ink);background:transparent;
+  cursor:pointer;position:relative;padding:0;
+}
+.admin .switch::after{content:"";position:absolute;top:1px;left:1px;width:1rem;height:calc(100% - 2px);background:var(--ink);transition:left .12s linear}
+.admin .switch[aria-checked="true"]{border-color:var(--go)}
+.admin .switch[aria-checked="true"]::after{left:calc(100% - 1.05rem);background:var(--go)}
+
+/* notes */
+.admin .notes{list-style:none;display:grid;gap:.1rem}
+.admin .notes li{border-bottom:1px solid var(--rule);padding:.7rem 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.7rem;align-items:start}
+.admin .notes p{font-size:.85rem;white-space:pre-wrap}
+.admin .notes .when{font-family:var(--mono);font-size:.58rem;color:var(--ink-40);margin-top:.25rem}
+
+@media (max-width:960px){
+  .admin .cols{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .admin .app{grid-template-columns:1fr}
+  .admin .side{border-right:none;border-bottom:1px solid var(--ink)}
+  .admin .side nav{flex-direction:row;flex-wrap:wrap}
+  .admin .side nav a,.admin .side nav button{width:auto}
+  .admin .side .grp,.admin .side .foot{display:none}
+  .admin td.hide,.admin th.hide{display:none}
+}

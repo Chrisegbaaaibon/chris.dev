@@ -1,21 +1,14 @@
 import { MetadataRoute } from "next";
-
-const BASE_URL = "https://chris.egbaaibon.com";
+import { siteConfig } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    "",
-    "/about",
-    "/experience",
-    "/projects",
-    "/services",
-    "/contact",
+  // One public page, so one entry. The sections are anchors on it.
+  return [
+    {
+      url: siteConfig.url,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
   ];
-
-  return routes.map((route) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
-  }));
 }

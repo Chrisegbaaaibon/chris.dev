@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,10 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/dashboard"],
       },
     ],
-    sitemap: "https://chris.egbaaibon.com/sitemap.xml",
-    host: "https://chris.egbaaibon.com",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

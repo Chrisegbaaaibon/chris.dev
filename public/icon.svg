@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#C0C0C0"/>
-      <stop offset="50%" style="stop-color:#F5F5F5"/>
-      <stop offset="100%" style="stop-color:#A8A9AD"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="6" fill="#0B0B0C"/>
-  <text x="16" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="url(#g)">CE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Christopher Egbaaibon">
+  <rect width="64" height="64" fill="#F3F0E9"/>
+  <rect x="10" y="16" width="44" height="9" fill="#171512"/>
+  <rect x="10" y="29" width="34" height="10" fill="#C43B12"/>
+  <rect x="10" y="43" width="22" height="9" fill="#171512"/>
 </svg>
