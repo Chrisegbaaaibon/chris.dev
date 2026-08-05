@@ -74,6 +74,37 @@ a{color:inherit}
 }
 .runbook .rail .avail b{display:block;color:var(--signal);font-weight:600}
 
+/* ---------- now playing, rail variant ---------- */
+.runbook .np-meter{display:inline-flex;align-items:flex-end;gap:2px;height:9px;flex:none}
+.runbook .np-meter i{display:block;width:2px;background:var(--signal);height:3px;transform-origin:bottom}
+.runbook .np-meter i:nth-child(1){animation:np-bar 1080ms -180ms ease-in-out infinite alternate}
+.runbook .np-meter i:nth-child(2){animation:np-bar 760ms -420ms ease-in-out infinite alternate}
+.runbook .np-meter i:nth-child(3){animation:np-bar 1240ms -60ms ease-in-out infinite alternate}
+@keyframes np-bar{from{height:2px}to{height:9px}}
+@media (prefers-reduced-motion:reduce){
+  .runbook .np-meter i{animation:none;height:9px}
+  .runbook .np-meter i:nth-child(2){height:5px}
+  .runbook .np-meter i:nth-child(3){height:7px}
+}
+.runbook .np-lbl{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-40);
+}
+.runbook .np-lbl.on{color:var(--signal)}
+.runbook .np-rail{border-top:1px solid var(--rule);margin-top:1.6rem;padding-top:.8rem;max-width:9rem}
+.runbook .np-rail .np-head{display:flex;align-items:center;gap:.4rem;margin-bottom:.5rem}
+.runbook .np-rail .np-title{
+  display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:.8rem;font-weight:700;line-height:1.2;letter-spacing:-.015em;text-decoration:none;color:var(--ink);
+}
+.runbook .np-rail a.np-title:hover{color:var(--signal)}
+.runbook .np-rail .np-artist{
+  display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;
+  font-family:var(--mono);font-size:.6rem;color:var(--ink-60);margin-top:.2rem;line-height:1.4;
+}
+.runbook .np-rail .np-when{
+  font-family:var(--mono);font-size:.56rem;color:var(--ink-40);margin-top:.5rem;letter-spacing:.04em;
+}
+
 .runbook .body{padding:2.5rem 0 0 clamp(1rem,3vw,2.75rem);min-width:0}
 
 /* ---------- opening ---------- */
@@ -232,6 +263,7 @@ a{color:inherit}
   .runbook .rail{border-right:none;border-bottom:1px solid var(--rule);padding:1rem 0}
   .runbook .rail-inner{position:static;flex-direction:row;flex-wrap:wrap;gap:.9rem}
   .runbook .rail .avail{margin-top:0;border-top:none;border-left:1px solid var(--rule);padding:0 0 0 .9rem}
+  .runbook .np-rail{display:none}
   .runbook .body{padding-left:0}
   .runbook .sys-row{grid-template-columns:2rem minmax(0,1fr)}
   .runbook .sys .meta{grid-column:2;text-align:left;padding-top:0}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { sections, siteConfig } from "@/lib/data";
 import { useActiveSection } from "./use-active-section";
+import { NowPlaying } from "./now-playing";
 
 const IDS = sections.map((s) => s.id);
 
@@ -49,6 +50,7 @@ export function Rail() {
             </span>
           ))}
         </div>
+        <NowPlaying />
       </div>
     </aside>
   );
