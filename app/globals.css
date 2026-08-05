@@ -263,7 +263,7 @@ a{color:inherit}
   .runbook .rail{border-right:none;border-bottom:1px solid var(--rule);padding:1rem 0}
   .runbook .rail-inner{position:static;flex-direction:row;flex-wrap:wrap;gap:.9rem}
   .runbook .rail .avail{margin-top:0;border-top:none;border-left:1px solid var(--rule);padding:0 0 0 .9rem}
-  .runbook .np-rail{display:none}
+  .runbook .np-rail{margin-top:0;border-top:none;border-left:1px solid var(--rule);padding:0 0 0 .9rem}
   .runbook .body{padding-left:0}
   .runbook .sys-row{grid-template-columns:2rem minmax(0,1fr)}
   .runbook .sys .meta{grid-column:2;text-align:left;padding-top:0}
