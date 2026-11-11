@@ -156,7 +156,7 @@ body:has(.folio){background:var(--bg)}
   padding:24px;padding-bottom:calc(24px + env(safe-area-inset-bottom));
 }
 .folio .dock{
-  pointer-events:auto;user-select:none;-webkit-user-select:none;cursor:grab;
+  position:relative;pointer-events:auto;user-select:none;-webkit-user-select:none;cursor:grab;
   display:flex;justify-content:center;height:58px;padding:8px 8px 0;border-radius:9999px;
   background:var(--bg);border:1px solid var(--line);box-shadow:0 30px 60px #0000001f;
 }
@@ -168,10 +168,18 @@ body:has(.folio){background:var(--bg)}
 @keyframes dock-in{from{opacity:0;translate:var(--from)}}
 /* buttons sit against the screen edge and grow away from it, out of the pill */
 .folio .dock-row{display:flex;align-items:flex-end;gap:8px;padding-bottom:8px}
+.folio .dock-scroll-hint{display:none}
 .folio .dock a,.folio .dock button{
   display:block;border-radius:9999px;background:none;border:0;padding:0;cursor:pointer;
   color:inherit;text-decoration:none;font:inherit;
 }
+.folio .dock-item{position:relative;display:block}
+/* iOS only: invisible tap target that carries the haptic switch */
+.folio .dock-haptic{
+  position:absolute;inset:0;border-radius:9999px;cursor:pointer;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+.folio .dock-haptic input{position:absolute;width:1px;height:1px;margin:0;visibility:hidden}
 .folio .dock-icon{
   position:relative;display:flex;align-items:center;justify-content:center;
   width:40px;height:40px;border-radius:9999px;background:var(--bg-3);
@@ -235,6 +243,13 @@ body:has(.folio){background:var(--bg)}
   .folio .dock{width:100%;cursor:auto}
   .folio .dock-row{width:100%;overflow-x:auto;scrollbar-width:none;margin-top:-20px;padding-top:20px}
   .folio .dock-tip{display:none}
+  .folio .dock-scroll-hint{
+    position:absolute;bottom:calc(100% + 10px);left:50%;translate:-50% 0;
+    display:flex;align-items:center;gap:4px;padding:3px 8px;white-space:nowrap;
+    border:1px solid var(--line);border-radius:9999px;background:var(--bg);
+    color:var(--text-2);font-size:11px;line-height:1.5;pointer-events:none;
+  }
+  .folio [data-pos=top] .dock-scroll-hint{top:calc(100% + 10px);bottom:auto}
 }
 
 @media (max-width:860px){.folio{padding:64px 24px 120px}}

@@ -10,7 +10,7 @@ import {
   type MotionValue,
   type TargetAndTransition,
 } from "framer-motion";
-import { Github } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
 /** Section ids in page order, for the active dot. */
@@ -48,25 +48,19 @@ function tick(ctx: AudioContext, at: number, level: number, hz: number) {
 }
 
 /**
- * A small tap you can feel. Android has the Vibration API; iOS Safari does not,
- * but flipping a native switch control ticks the Taptic Engine, so one is
- * created, toggled and thrown away. Everywhere else this does nothing.
+ * iOS Safari has no vibration API. Its one route to the Taptic Engine is a real
+ * finger tap toggling a native switch control, so on iOS each dock button wears
+ * an invisible label wired to a hidden switch (see Item). A click made from
+ * code does not count, which is why this cannot simply be called on tap.
  */
+const IOS =
+  typeof navigator !== "undefined" &&
+  (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+
+/** Android: a short buzz. A no-op wherever the Vibration API is missing. */
 function haptic(ms: number) {
   try {
-    if (navigator.vibrate) {
-      navigator.vibrate(ms);
-      return;
-    }
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.setAttribute("switch", "");
-    label.style.display = "none";
-    label.appendChild(input);
-    document.head.appendChild(label);
-    label.click();
-    label.remove();
+    navigator.vibrate?.(ms);
   } catch {
     // No haptics on this device.
   }
@@ -255,6 +249,13 @@ function Item({
   const size = useSpring(useTransform(distance, [-range, 0, range], [base, max, base]), MAGNIFY_SPRING);
   const glyph = useSpring(useTransform(distance, [-range, 0, range], [icon, iconMax, icon]), MAGNIFY_SPRING);
 
+  // Touch has no hover to magnify, so a tap gets a little hop instead.
+  const hop = () =>
+    jump.start({
+      y: [0, -20, 0, -4, 0],
+      transition: { duration: 0.6, times: [0, 0.4, 0.68, 0.84, 1], ease: ["easeOut", "easeIn", "easeOut", "easeIn"] },
+    });
+
   const inner = (
     <motion.span
       ref={ref}
@@ -262,13 +263,8 @@ function Item({
       style={{ width: size, height: size }}
       animate={jump}
       whileHover="hover"
-      // Touch has no hover to magnify, so a tap gets a little hop instead.
       onTap={(e) => {
-        if ((e as PointerEvent).pointerType === "mouse") return;
-        jump.start({
-          y: [0, -20, 0, -4, 0],
-          transition: { duration: 0.6, times: [0, 0.4, 0.68, 0.84, 1], ease: ["easeOut", "easeIn", "easeOut", "easeIn"] },
-        });
+        if ((e as PointerEvent).pointerType !== "mouse") hop();
       }}
     >
       <motion.span className="dock-glyph" style={{ width: glyph, height: glyph }}>
@@ -285,22 +281,41 @@ function Item({
   );
 
   const external = href?.startsWith("http");
-  return href ? (
-    <a
-      href={href}
-      aria-label={label}
-      data-key={k}
-      draggable={false}
-      onClick={() => blip("click")}
-      aria-current={active ? "true" : undefined}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-    >
-      {inner}
-    </a>
-  ) : (
-    <button type="button" aria-label={label} data-key={k} onClick={onClick}>
-      {inner}
-    </button>
+  return (
+    <span className="dock-item">
+      {href ? (
+        <a
+          href={href}
+          aria-label={label}
+          data-key={k}
+          draggable={false}
+          onClick={() => blip("click")}
+          aria-current={active ? "true" : undefined}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {inner}
+        </a>
+      ) : (
+        <button type="button" aria-label={label} data-key={k} onClick={onClick}>
+          {inner}
+        </button>
+      )}
+      {IOS && (
+        // The finger lands here, the switch flips (that is the haptic), and the
+        // tap is then passed on to the real button underneath.
+        <label
+          className="dock-haptic"
+          aria-hidden="true"
+          onClick={(e) => {
+            hop();
+            (e.currentTarget.previousElementSibling as HTMLElement).click();
+          }}
+        >
+          {/* The label forwards its click to the switch; stop that copy bubbling back up. */}
+          <input type="checkbox" tabIndex={-1} onClick={(e) => e.stopPropagation()} {...{ switch: "" }} />
+        </label>
+      )}
+    </span>
   );
 }
 
@@ -312,7 +327,9 @@ export function Dock() {
   // null until mounted: the saved edge lives in localStorage, which the server cannot see.
   const [pos, setPos] = useState<Pos | null>(null);
   const [active, setActive] = useState("top");
+  const [scrollHint, setScrollHint] = useState({ left: false, right: false });
   const nav = useRef<HTMLElement>(null);
+  const row = useRef<HTMLDivElement>(null);
   const pointer = useMotionValue(Infinity);
   const x = useSpring(0, MOVE_SPRING);
   const y = useSpring(0, MOVE_SPRING);
@@ -357,6 +374,26 @@ export function Dock() {
       window.removeEventListener("keydown", keys);
     };
   }, []);
+
+  useLayoutEffect(() => {
+    const el = row.current;
+    if (!el) return;
+    const update = () => {
+      const left = el.scrollLeft > 1;
+      const right = el.scrollWidth - el.clientWidth - el.scrollLeft > 1;
+      setScrollHint((current) =>
+        current.left === left && current.right === right ? current : { left, right },
+      );
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    el.addEventListener("scroll", update, { passive: true });
+    return () => {
+      observer.disconnect();
+      el.removeEventListener("scroll", update);
+    };
+  }, [pos]);
 
   // After a throw the dock is already laid out on its new edge: start it visually
   // where it was let go, then let the spring carry it home.
@@ -429,7 +466,14 @@ export function Dock() {
           }
         }}
       >
-        <div className="dock-row">
+        {(scrollHint.left || scrollHint.right) && (
+          <span className="dock-scroll-hint" aria-hidden="true">
+            {scrollHint.left && <ChevronLeft size={12} />}
+            Swipe for more
+            {scrollHint.right && <ChevronRight size={12} />}
+          </span>
+        )}
+        <div ref={row} className="dock-row">
           <Item {...item} label="Home" k="1" href="#top" active={is("top")}>
             {icons.home}
           </Item>
