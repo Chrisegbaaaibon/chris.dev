@@ -1,227 +1,109 @@
-import Link from "next/link";
-import { TopNav, Rail } from "@/components/runbook/nav";
-import { Systems } from "@/components/runbook/systems";
-import { RecordTable } from "@/components/runbook/record-table";
-import { ContactActions } from "@/components/runbook/contact-actions";
-import {
-  alsoRecord,
-  contact,
-  figures,
-  now,
-  opening,
-  practice,
-  siteConfig,
-  toolkit,
-} from "@/lib/data";
+import type { CSSProperties } from "react";
+import Image from "next/image";
+import { Dock } from "@/components/runbook/dock";
+import { CopyEmail } from "@/components/runbook/copy-email";
+import { NowPlaying } from "@/components/runbook/now-playing";
+import { bio, companies, connect, experience, intro, record, siteConfig, work } from "@/lib/data";
+
+/** Stagger position for the reveal animation. */
+const i = (n: number) => ({ "--i": n }) as CSSProperties;
+
+const list = new Intl.ListFormat("en-GB", { type: "conjunction" });
+
+// Statically rendered, so this is the date of the last deploy.
+const updated = new Date().toLocaleString("en-GB", { month: "long", year: "numeric" });
 
 export default function Home() {
   return (
-    <div className="runbook">
-      <div className="shell">
-        <header className="topbar">
-          <div className="wordmark">
-            {siteConfig.name} <span>/ {siteConfig.seat.toLowerCase()}</span>
+    <main className="folio" id="top">
+      <div className="stack">
+        <section className="intro" style={i(0)}>
+          <Image className="avatar" src="/avatar.jpg" alt={siteConfig.name} width={48} height={48} priority />
+          <h1>{intro.title}</h1>
+          <div>
+            <p className="sub">{intro.about}</p>
+            <p className="sub">
+              {intro.now[0]}
+              <span className="logos">
+                {companies.map((c) => (
+                  <a key={c.name} href={c.url} title={c.name} target="_blank" rel="noopener noreferrer">
+                    <Image src={c.logo} alt={c.name} width={20} height={20} />
+                  </a>
+                ))}
+              </span>
+              {intro.now[1]}
+              <a href="#experience">a few others</a>.
+            </p>
           </div>
-          <TopNav />
-        </header>
+        </section>
 
-        <div className="doc">
-          <Rail />
+        <section id="work" style={i(1)}>
+          <h2>Work</h2>
+          <p className="sub">{work.sub}</p>
+          <ul className="list">
+            {work.items.map((w) => (
+              <li key={w.title} className="item">
+                <span className="t">{w.title}</span>
+                <span className="d">{w.line}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <main className="body">
-            <div className="open" id="top">
-              <h1>
-                {opening.headline[0]}
-                <em>{opening.headline[1]}</em>
-                {opening.headline[2]}
-              </h1>
-              <p className="lede">{opening.lede}</p>
+        <section id="experience" style={i(2)}>
+          <h2>Experience</h2>
+          <p className="sub">{experience.sub}</p>
+          <ul className="list">
+            {record
+              .filter((r) => !experience.earlier.includes(r.org))
+              .map((r) => (
+                <li key={r.org} className="item row">
+                  <span className="t">
+                    {r.org} <span>· {r.seat}</span>
+                  </span>
+                  <span className="d">{r.dates}</span>
+                </li>
+              ))}
+          </ul>
+          <p className="sub">Earlier experiences: {list.format(experience.earlier)}.</p>
+        </section>
 
-              <div className="who">
-                {opening.who.map((w) => (
-                  <dl key={w.dt}>
-                    <dt>{w.dt}</dt>
-                    <dd>{w.dd}</dd>
-                  </dl>
-                ))}
-              </div>
-
-              <div className="actions">
-                <a className="btn fill" href="#systems">
-                  Read the systems
-                </a>
-                <a className="btn" href="#contact">
-                  Start a conversation
-                </a>
-                <a className="btn" href="#record">
-                  Full record
-                </a>
-              </div>
-
-              <div className="figures">
-                {figures.map((f) => (
-                  <div key={f.src}>
-                    <div className="v num">{f.v}</div>
-                    <div className="k">{f.k}</div>
-                    <div className="src">{f.src}</div>
-                  </div>
-                ))}
-              </div>
+        <section id="bio" style={i(3)}>
+          <h2>Bio</h2>
+          <p className="sub">{bio.sub}</p>
+          {bio.body.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+          {bio.more.map((m) => (
+            <div key={m.h}>
+              <h3>{m.h}</h3>
+              <p>{m.p}</p>
             </div>
+          ))}
+        </section>
 
-            <section id="now">
-              <div className="head">
-                <span className="tag">01</span>
-                <h2>What I am on right now</h2>
-                <span className="fill-rule" />
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Team</th>
-                    <th>Seat and remit</th>
-                    <th>Since</th>
-                    <th>Working in</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {now.map((r) => (
-                    <tr key={r.org}>
-                      <td className="org">
-                        {r.org} {r.mark && <span className="mark">{r.mark}</span>}
-                        {r.where && <small>{r.where}</small>}
-                      </td>
-                      <td>{r.remit}</td>
-                      <td className="yr num">{r.since}</td>
-                      <td className="stack">{r.stack}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </section>
+        <section id="connect" style={i(4)}>
+          <h2>Connect</h2>
+          <h3>{connect.h}</h3>
+          <p>{connect.p}</p>
+          <div className="links">
+            <CopyEmail />
+            <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href={siteConfig.links.linktree} target="_blank" rel="noopener noreferrer">
+              More
+            </a>
+          </div>
+        </section>
 
-            <section id="systems">
-              <div className="head">
-                <span className="tag">02</span>
-                <h2>Systems, and what happened to them</h2>
-                <span className="fill-rule" />
-              </div>
-              <Systems />
-            </section>
-
-            <section id="record">
-              <div className="head">
-                <span className="tag">03</span>
-                <h2>Eight teams, five years</h2>
-                <span className="fill-rule" />
-              </div>
-              <RecordTable />
-
-              <table style={{ marginTop: "2.4rem" }}>
-                <thead>
-                  <tr>
-                    <th>Also</th>
-                    <th>What it is</th>
-                    <th>Since</th>
-                    <th />
-                  </tr>
-                </thead>
-                <tbody>
-                  {alsoRecord.map((a) => (
-                    <tr key={a.org}>
-                      <td className="org">{a.org}</td>
-                      <td>{a.what}</td>
-                      <td className="yr">{a.since}</td>
-                      <td className="stack">{a.stack}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </section>
-
-            <section id="practice">
-              <div className="head">
-                <span className="tag">04</span>
-                <h2>How the work actually goes</h2>
-                <span className="fill-rule" />
-              </div>
-              <div className="practice">
-                {practice.map((p) => (
-                  <article key={p.n}>
-                    <span className="n num">{p.n}</span>
-                    <h3>{p.h}</h3>
-                    <p>{p.p}</p>
-                    <ul>
-                      {p.li.map((l) => (
-                        <li key={l}>{l}</li>
-                      ))}
-                    </ul>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section id="toolkit">
-              <div className="head">
-                <span className="tag">05</span>
-                <h2>What I reach for</h2>
-                <span className="fill-rule" />
-              </div>
-              <dl className="kit">
-                {toolkit.map((t) => (
-                  <div key={t.dt} style={{ display: "contents" }}>
-                    <dt>{t.dt}</dt>
-                    <dd>
-                      {t.dd.map((d, i) => (d.b ? <b key={i}>{d.t}</b> : <span key={i}>{d.t}</span>))}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
-
-            <section id="contact" style={{ borderBottom: "none" }}>
-              <div className="contact">
-                <div>
-                  <h2>{contact.h}</h2>
-                  <p>{contact.p}</p>
-                  <ContactActions />
-                </div>
-                <ul className="links">
-                  {contact.links.map((l) => (
-                    <li key={l.k}>
-                      {l.href.startsWith("/") ? (
-                        <Link href={l.href}>
-                          <span className="k">{l.k}</span>
-                          <span>{l.v}</span>
-                        </Link>
-                      ) : (
-                        <a href={l.href}>
-                          <span className="k">{l.k}</span>
-                          <span>{l.v}</span>
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            <footer>
-              <p>
-                Written and maintained by <b>{siteConfig.name}</b>.
-                <br />
-                Every figure on this page comes from work I did, and I will walk you through any of
-                them.
-              </p>
-              <p>
-                Set in <b>Bricolage Grotesque</b> and <b>Azeret Mono</b>.
-                <br />
-                Variant 01, Runbook. &copy; 2026.
-              </p>
-            </footer>
-          </main>
-        </div>
+        <section className="foot" style={i(5)}>
+          <NowPlaying />
+          <p>Last updated {updated}</p>
+        </section>
       </div>
-    </div>
+      <div className="fade" />
+      <Dock />
+    </main>
   );
 }

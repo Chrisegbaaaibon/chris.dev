@@ -1,4 +1,4 @@
-import { record, siteConfig, systems } from "@/lib/data";
+import { record, siteConfig, work as workList } from "@/lib/data";
 
 export function JsonLd() {
   const person = {
@@ -23,6 +23,7 @@ export function JsonLd() {
       .map((r) => ({ "@type": "Organization", name: r.org })),
     knowsAbout: [
       "Backend engineering",
+      "Cloud infrastructure",
       "REST API design",
       "Payments and reconciliation",
       "Node.js",
@@ -50,12 +51,12 @@ export function JsonLd() {
   const work = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Systems",
-    itemListElement: systems.map((s, i) => ({
+    name: "Work",
+    itemListElement: workList.items.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: s.title,
-      description: s.kind,
+      description: s.line,
     })),
   };
 

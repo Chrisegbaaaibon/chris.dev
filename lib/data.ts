@@ -5,98 +5,288 @@
 
 export const siteConfig = {
   name: "Christopher Egbaaibon",
-  seat: "Senior backend engineer",
-  title: "Christopher Egbaaibon, senior backend engineer",
+  seat: "Full-stack and DevOps engineer",
+  title: "Christopher Egbaaibon, full-stack and DevOps engineer",
   description:
-    "Backend engineer, five years in. APIs and services on high-scale systems: a transaction platform for 50,000 users across Nigeria and Ghana, a fintech backend held at six nines, and the infrastructure under both.",
+    "Christopher is a full-stack and DevOps engineer, building software and the systems that keep it running. Currently at Pantech Dynamics and Pandar.",
   url: "https://chris.egbaaibon.com",
   base: "Lagos, Nigeria. Remote friendly",
   email: "christopheregbaaibon@gmail.com",
   cv: "/christopher-egbaaibon-cv.pdf",
   links: {
-    linkedin: "https://linkedin.com/in/christopheregbaaibon",
+    linkedin: "https://linkedin.com/in/egbaaibon-christopher-02701120a",
     linktree: "https://linktr.ee/ghostcod3r",
     github: "https://github.com/chrisegbaaaibon",
     email: "mailto:christopheregbaaibon@gmail.com",
   },
-  availability: {
-    headline: "Open to senior roles",
-    lines: ["Full-time, contract,", "architecture reviews.", "Lagos, Nigeria.", "Remote friendly."],
-  },
 } as const;
 
-/** Rail + topbar sections, in document order. */
-export const sections = [
-  { id: "top", rn: "00", label: "Opening", nav: false },
-  { id: "now", rn: "01", label: "Now", nav: true },
-  { id: "systems", rn: "02", label: "Systems", nav: true },
-  { id: "record", rn: "03", label: "Record", nav: true },
-  { id: "practice", rn: "04", label: "Practice", nav: true },
-  { id: "toolkit", rn: "05", label: "Toolkit", nav: true },
-  { id: "contact", rn: "06", label: "Contact", nav: true },
-] as const;
-
-export const opening = {
-  headline: ["I own the services that other people's money moves ", "through", "."],
-  lede: "Backend engineer, five years in. APIs and services on high-scale systems: a transaction platform for 50,000 users across Nigeria and Ghana, a fintech backend held at six nines, and the infrastructure under both. I lead the work end to end, from the architecture call to the thing still running six months later.",
-  who: [
-    { dt: "Seat", dd: "Senior backend engineer" },
-    { dt: "Now", dd: "Pandar Resources, Lingu" },
-    { dt: "Base", dd: "Lagos, Nigeria. Remote friendly" },
+export const intro = {
+  title: "Hi, I'm Christopher. I build software and the systems that keep it running.",
+  about:
+    "I'm a full-stack and DevOps engineer, working across backend development, cloud infrastructure, and everything in between.",
+  /** The company logos sit between these two halves. */
+  now: [
+    "Currently building at ",
+    "Pantech Dynamics and Pandar. Previously worked with Lumofy, TradeHub, Magicpitch, and ",
   ],
 };
 
-export const figures = [
+/** Logo stack in the intro. Files are 64px copies of each site's own icon. */
+export const companies = [
+  { name: "Pantech Dynamics", url: "https://pantechdynamics.com", logo: "/logos/pantech.png" },
+  { name: "Pandar", url: "https://pandar.ng", logo: "/logos/pandar.png" },
+  { name: "Lumofy", url: "https://lumofy.ai", logo: "/logos/lumofy.png" },
+  { name: "SaveCircle", url: "https://savecircle.app", logo: "/logos/savecircle.png" },
+];
+
+export const work = {
+  sub: "A few things I've built and worked on.",
+  items: [
+    {
+      title: "Pantech Dynamics",
+      line: "Making cloud infrastructure easier to operate, monitor, and manage.",
+    },
+    {
+      title: "Pandar",
+      line: "Building financial systems for payments, digital wallets, and everyday transactions.",
+    },
+    {
+      title: "DolphJs",
+      line: "An open-source backend framework I co-created to make building applications a little easier.",
+    },
+    {
+      title: "Notch for Windows",
+      line: "Bringing a little piece of the Dynamic Island experience to Windows.",
+    },
+    {
+      title: "Magicpitch",
+      line: "Making everyday workflows simpler with AI-powered tools and automation.",
+    },
+  ],
+};
+
+export const experience = {
+  sub: "Some places I've worked and people I've built with.",
+  /** Still in `record` for the dashboard, but only named in passing on the page. */
+  earlier: ["Daolity", "MO Group", "Frolancer"],
+};
+
+export const bio = {
+  sub: "A little more about me.",
+  body: [
+    "I enjoy figuring out how things work, why they break, and how to make them better.",
+    "Most of my time goes into building software, working with infrastructure, and experimenting with ideas that catch my attention.",
+    "I've worked on everything from financial platforms to cloud systems and developer tools. Different problems, same curiosity.",
+    "I studied Mathematics and Computer Science at the University of Lagos.",
+  ],
+  more: [
+    {
+      h: "Lately",
+      p: "Building cloud systems at Pantech, working on financial infrastructure at Pandar, and exploring ideas of my own.",
+    },
+    {
+      h: "Things I enjoy working with",
+      p: "TypeScript, Python, Go, React, NestJS, Django, AWS, Docker, and whatever else gets the job done.",
+    },
+  ],
+};
+
+export const connect = {
+  h: "Let's make something happen.",
+  p: "I'm always happy to meet interesting people, exchange ideas, or work on something worth building. Feel free to say hi.",
+};
+
+/** Experience. Sort keys are ISO so the table can order itself. */
+export const record = [
   {
-    v: "50,000+",
-    k: "users on the transaction API I maintain",
-    src: "PANDAR RESOURCES, NIGERIA AND GHANA",
+    org: "Pantech Dynamics",
+    where: "Abuja, Nigeria",
+    seat: "Founding Engineer",
+    dates: "Aug 2026 – Present",
+    start: "2026-08",
+    stack: "CloudStack, Docker, MySQL, Stripe",
+    current: true,
   },
   {
-    v: "99.9999%",
-    k: "uptime on zero-fee peer-to-peer transfers",
-    src: "WALLET TO BANK, REAL-TIME RECONCILIATION",
+    org: "Pandar",
+    where: "Sheridan, Wyoming. Remote",
+    seat: "Software Engineer",
+    dates: "Nov 2025 – Present",
+    start: "2025-11",
+    stack: "Node.js, TypeScript, MySQL, AWS",
+    current: true,
   },
   {
-    v: "~99.9%",
-    k: "cut in search response time after moving to Typesense",
-    src: "TRADEHUB, CONTRACT",
+    org: "SaveCircle",
+    where: "United States. Remote",
+    seat: "Software & DevOps Engineer",
+    dates: "Jun 2024 – Present",
+    start: "2024-06",
+    stack: "TypeScript, NestJS, AWS",
+    current: true,
   },
   {
-    v: "5",
-    k: "years shipping production backends",
-    src: "SINCE 2021, ACROSS 8 TEAMS",
+    org: "Lumofy",
+    where: "Bahrain. Remote",
+    seat: "Software Engineer",
+    dates: "Jun 2025 – Nov 2025",
+    start: "2025-06",
+    stack: "Django, DRF, Python",
+    current: false,
+  },
+  {
+    org: "TradeHub",
+    where: "London. Remote, contract",
+    seat: "Software Engineer",
+    dates: "Mar 2025 – Jun 2025",
+    start: "2025-03",
+    stack: "TypeScript, Node.js, Typesense",
+    current: false,
+  },
+  {
+    org: "Mbag Microfinance",
+    where: "Lagos, Nigeria",
+    seat: "Senior DevOps Engineer",
+    dates: "Oct 2024 – Feb 2025",
+    start: "2024-10",
+    stack: "AWS, Terraform, GitHub Actions",
+    current: false,
+  },
+  {
+    org: "Daolity",
+    where: "Lagos, Nigeria",
+    seat: "Software Developer",
+    dates: "Jan 2024 – Mar 2024",
+    start: "2024-01",
+    stack: "Django, PostgreSQL",
+    current: false,
+  },
+  {
+    org: "Magicpitch",
+    where: "UK and UAE. Remote",
+    seat: "Software Developer",
+    dates: "Jun 2023 – Dec 2023",
+    start: "2023-06",
+    stack: "Python, Next.js, OpenAI, Azure, AWS",
+    current: false,
+  },
+  {
+    org: "MO Group",
+    where: "Lagos, Nigeria",
+    seat: "Lead Developer",
+    dates: "Jan 2023 – Jun 2023",
+    start: "2023-01",
+    stack: "Express, React, React Native, AWS",
+    current: false,
+  },
+  {
+    org: "Frolancer",
+    where: "Plymouth, UK. Remote",
+    seat: "Backend Developer",
+    dates: "Oct 2021 – Dec 2022",
+    start: "2021-10",
+    stack: "TypeScript, NestJS",
+    current: false,
   },
 ];
 
-/** Section 01, what I am on right now. */
-export const now = [
-  {
-    org: "Pandar Resources",
-    where: "Sheridan, Wyoming. Remote",
-    remit:
-      "Software engineer. I maintain the core transaction API behind crypto to Naira conversions and gift card redemptions, and I built the wallet to bank transfer path with real-time balance reconciliation against Nigerian bank accounts.",
-    since: "Nov 2025 ›",
-    stack: "Node.js, TypeScript, MySQL, AWS",
-  },
+export const alsoRecord = [
   {
     org: "Lingu",
-    mark: "founder",
-    remit:
-      "Agentic AI customer support platform. It reads a ticket, calls the API, resolves it, and keeps the audit trail. In pilot with early customers.",
+    what: "Founder. Agentic AI customer support platform, in pilot with early customers.",
     since: "ongoing",
     stack: "NestJS, TypeScript",
   },
   {
     org: "DolphJS",
-    mark: "open source",
-    remit:
-      "Co-author of a TypeScript backend framework, written to cut the setup cost for enterprise and small projects alike.",
+    what: "Co-founder of an open-source TypeScript backend framework.",
     since: "ongoing",
-    stack: "TypeScript, Node.js",
+    stack: "TypeScript",
+  },
+  {
+    org: "Hivend",
+    what: "Ambassador. Grassroots campaign that grew FroWork's freelancer base.",
+    since: "past",
+    stack: "$30,000 in early transactions",
+  },
+  {
+    org: "University of Lagos",
+    what: "B.Sc. Mathematics and Computer Science.",
+    since: "degree",
+    stack: "",
   },
 ];
 
+/** Section 04, how the work actually goes. */
+export const practice = [
+  {
+    n: "01",
+    h: "Own an API end to end",
+    p: "Contract first, then the service behind it, then the thing that pages you when it breaks.",
+    li: [
+      "REST design and documentation",
+      "Schema and query optimisation",
+      "Testing and monitoring before launch",
+    ],
+  },
+  {
+    n: "02",
+    h: "Keep it up",
+    p: "Six nines is not a slogan, it is a set of boring decisions made early and kept.",
+    li: [
+      "Reconciliation between systems of record",
+      "Deployment automation, Terraform and Actions",
+      "Reducing technical debt on purpose",
+    ],
+  },
+  {
+    n: "03",
+    h: "Lead the piece of work",
+    p: "I have run a cross-functional rebuild and a payment redesign. Both were mostly sequencing.",
+    li: [
+      "Architecture decisions with a written reason",
+      "Code review and mentorship",
+      "Talking to people who do not write code",
+    ],
+  },
+];
+
+/** Section 05, what I reach for. `b` entries render bold. */
+export const toolkit = [
+  { dt: "Languages", dd: [{ t: "TypeScript", b: true }, { t: ", JavaScript, Python, Golang" }] },
+  {
+    dt: "Backend",
+    dd: [
+      { t: "Node.js", b: true },
+      { t: ", " },
+      { t: "NestJS", b: true },
+      { t: ", Express, Django, FastAPI" },
+    ],
+  },
+  { dt: "Front of house", dd: [{ t: "React, Next.js, React Native" }] },
+  {
+    dt: "Data",
+    dd: [{ t: "MySQL", b: true }, { t: ", PostgreSQL, MongoDB, Redis, Typesense, ElasticSearch" }],
+  },
+  {
+    dt: "Cloud",
+    dd: [
+      { t: "AWS", b: true },
+      { t: " Amplify, Lambda, API Gateway, ECR, ECS, EC2. Google Cloud, familiar" },
+    ],
+  },
+  { dt: "Delivery", dd: [{ t: "Docker, Terraform, GitHub Actions" }] },
+  {
+    dt: "Practice",
+    dd: [
+      { t: "REST API design, Swagger and Postman documentation, code review, testing, Agile, Jira" },
+    ],
+  },
+];
+
+
+/** The longer systems list. The dashboard seeds its rows from this; the home page uses `work`. */
 export type System = {
   id: string;
   title: string;
@@ -108,8 +298,6 @@ export type System = {
   role: string;
   when: string;
 };
-
-/** Section 02, systems and what happened to them. */
 export const systems: System[] = [
   {
     id: "pandar",
@@ -225,189 +413,3 @@ export const systems: System[] = [
     when: "Ongoing",
   },
 ];
-
-/** Section 03, eight teams, five years. Sort keys are ISO so the table can order itself. */
-export const record = [
-  {
-    org: "Pandar Resources",
-    where: "Sheridan, Wyoming. Remote",
-    seat: "Software engineer",
-    dates: "Nov 2025 ›",
-    start: "2025-11",
-    stack: "Node.js, TypeScript, MySQL, AWS",
-    current: true,
-  },
-  {
-    org: "SaveCircle",
-    where: "United States. Remote",
-    seat: "Software and DevOps engineer",
-    dates: "Jun 2024 ›",
-    start: "2024-06",
-    stack: "TypeScript, NestJS, AWS",
-    current: true,
-  },
-  {
-    org: "Lumofy",
-    where: "Bahrain. Remote",
-    seat: "Software engineer, Performance squad",
-    dates: "Jun to Nov 2025",
-    start: "2025-06",
-    stack: "Django, DRF, Python",
-    current: false,
-  },
-  {
-    org: "TradeHub",
-    where: "London. Remote, contract",
-    seat: "Software engineer",
-    dates: "Mar to Jun 2025",
-    start: "2025-03",
-    stack: "TypeScript, Node.js, Typesense",
-    current: false,
-  },
-  {
-    org: "Mbag Microfinance",
-    where: "Lagos, Nigeria",
-    seat: "DevOps engineer",
-    dates: "Oct 2024 to Feb 2025",
-    start: "2024-10",
-    stack: "AWS, Terraform, GitHub Actions",
-    current: false,
-  },
-  {
-    org: "Daolity",
-    where: "Lagos, Nigeria",
-    seat: "Software developer",
-    dates: "Jan to Mar 2024",
-    start: "2024-01",
-    stack: "Django, PostgreSQL",
-    current: false,
-  },
-  {
-    org: "MO Group",
-    where: "Lagos, Nigeria",
-    seat: "Lead developer",
-    dates: "Jan to Jun 2023",
-    start: "2023-01",
-    stack: "Express, React, React Native, AWS",
-    current: false,
-  },
-  {
-    org: "Frolancer",
-    where: "Plymouth, UK. Remote",
-    seat: "Backend developer",
-    dates: "Oct 2021 to Dec 2022",
-    start: "2021-10",
-    stack: "TypeScript, NestJS",
-    current: false,
-  },
-];
-
-export const alsoRecord = [
-  {
-    org: "Lingu",
-    what: "Founder. Agentic AI customer support platform, in pilot with early customers.",
-    since: "ongoing",
-    stack: "NestJS, TypeScript",
-  },
-  {
-    org: "DolphJS",
-    what: "Co-founder of an open-source TypeScript backend framework.",
-    since: "ongoing",
-    stack: "TypeScript",
-  },
-  {
-    org: "Hivend",
-    what: "Ambassador. Grassroots campaign that grew FroWork's freelancer base.",
-    since: "past",
-    stack: "$30,000 in early transactions",
-  },
-  {
-    org: "University of Lagos",
-    what: "B.Sc. Mathematics and Computer Science.",
-    since: "degree",
-    stack: "",
-  },
-];
-
-/** Section 04, how the work actually goes. */
-export const practice = [
-  {
-    n: "01",
-    h: "Own an API end to end",
-    p: "Contract first, then the service behind it, then the thing that pages you when it breaks.",
-    li: [
-      "REST design and documentation",
-      "Schema and query optimisation",
-      "Testing and monitoring before launch",
-    ],
-  },
-  {
-    n: "02",
-    h: "Keep it up",
-    p: "Six nines is not a slogan, it is a set of boring decisions made early and kept.",
-    li: [
-      "Reconciliation between systems of record",
-      "Deployment automation, Terraform and Actions",
-      "Reducing technical debt on purpose",
-    ],
-  },
-  {
-    n: "03",
-    h: "Lead the piece of work",
-    p: "I have run a cross-functional rebuild and a payment redesign. Both were mostly sequencing.",
-    li: [
-      "Architecture decisions with a written reason",
-      "Code review and mentorship",
-      "Talking to people who do not write code",
-    ],
-  },
-];
-
-/** Section 05, what I reach for. `b` entries render bold. */
-export const toolkit = [
-  { dt: "Languages", dd: [{ t: "TypeScript", b: true }, { t: ", JavaScript, Python, Golang" }] },
-  {
-    dt: "Backend",
-    dd: [
-      { t: "Node.js", b: true },
-      { t: ", " },
-      { t: "NestJS", b: true },
-      { t: ", Express, Django, FastAPI" },
-    ],
-  },
-  { dt: "Front of house", dd: [{ t: "React, Next.js, React Native" }] },
-  {
-    dt: "Data",
-    dd: [{ t: "MySQL", b: true }, { t: ", PostgreSQL, MongoDB, Redis, Typesense, ElasticSearch" }],
-  },
-  {
-    dt: "Cloud",
-    dd: [
-      { t: "AWS", b: true },
-      { t: " Amplify, Lambda, API Gateway, ECR, ECS, EC2. Google Cloud, familiar" },
-    ],
-  },
-  { dt: "Delivery", dd: [{ t: "Docker, Terraform, GitHub Actions" }] },
-  {
-    dt: "Practice",
-    dd: [
-      { t: "REST API design, Swagger and Postman documentation, code review, testing, Agile, Jira" },
-    ],
-  },
-];
-
-export const contact = {
-  h: "Tell me what breaks and when.",
-  p: "A useful first message says what the system does, where it is falling over or where it is going next, and the date you are working to. I will tell you whether I am the right engineer for it before I tell you anything else.",
-  links: [
-    { k: "LinkedIn", v: "christopheregbaaibon ›", href: siteConfig.links.linkedin },
-    { k: "Links", v: "linktr.ee/ghostcod3r ›", href: siteConfig.links.linktree },
-    { k: "GitHub", v: "Code and DolphJS ›", href: siteConfig.links.github },
-    { k: "Email", v: "Direct ›", href: siteConfig.links.email },
-  ],
-};
-
-/** Every distinct chip across the systems list, for the filter control. */
-export const systemTags = Array.from(new Set(systems.flatMap((s) => s.chips))).sort((a, b) =>
-  a.localeCompare(b)
-);

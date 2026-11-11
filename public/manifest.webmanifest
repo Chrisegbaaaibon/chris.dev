@@ -1,19 +1,14 @@
 {
-  "name": "Christopher Egbaaibon, senior backend engineer",
+  "name": "Christopher Egbaaibon, full-stack and DevOps engineer",
   "short_name": "CE.dev",
-  "description": "Backend engineer, five years in. APIs and services on high-scale systems, and the infrastructure under them.",
+  "description": "Full-stack and DevOps engineer. Backends, and the infrastructure under them.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F3F0E9",
-  "theme_color": "#F3F0E9",
+  "background_color": "#f8f8f8",
+  "theme_color": "#f8f8f8",
   "orientation": "portrait-primary",
   "categories": ["portfolio", "technology", "software"],
   "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
