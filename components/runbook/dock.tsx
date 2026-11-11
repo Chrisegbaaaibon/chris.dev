@@ -48,11 +48,38 @@ function tick(ctx: AudioContext, at: number, level: number, hz: number) {
 }
 
 /**
+ * A small tap you can feel. Android has the Vibration API; iOS Safari does not,
+ * but flipping a native switch control ticks the Taptic Engine, so one is
+ * created, toggled and thrown away. Everywhere else this does nothing.
+ */
+function haptic(ms: number) {
+  try {
+    if (navigator.vibrate) {
+      navigator.vibrate(ms);
+      return;
+    }
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.setAttribute("switch", "");
+    label.style.display = "none";
+    label.appendChild(input);
+    document.head.appendChild(label);
+    label.click();
+    label.remove();
+  } catch {
+    // No haptics on this device.
+  }
+}
+
+/**
  * Synthesized UI sounds, so there are no audio files to ship. A link is a
  * press-and-release double tick; the theme is a single snap like a light
  * switch, brighter going on and duller going off.
  */
 function blip(kind: "click" | "on" | "off") {
+  // Felt as well as heard: a light tap for links, a firmer one for the theme switch.
+  haptic(kind === "click" ? 8 : 16);
   try {
     audio ??= new AudioContext();
     const t = audio.currentTime;

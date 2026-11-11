@@ -14,7 +14,7 @@ export const siteConfig = {
   email: "christopheregbaaibon@gmail.com",
   cv: "/christopher-egbaaibon-cv.pdf",
   links: {
-    linkedin: "https://linkedin.com/in/egbaaibon-christopher-02701120a",
+    linkedin: "https://linkedin.com/in/christopher-egbaaibon",
     linktree: "https://linktr.ee/ghostcod3r",
     github: "https://github.com/chrisegbaaaibon",
     email: "mailto:christopheregbaaibon@gmail.com",
