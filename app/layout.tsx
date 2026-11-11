@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Azeret_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@useorbits/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteConfig } from "@/lib/data";
 
