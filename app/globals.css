@@ -81,12 +81,13 @@ body:has(.folio){background:var(--bg)}
 
 .folio .stack{display:flex;flex-direction:column;gap:64px;width:min(560px,100%)}
 .folio section{display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:100%;scroll-margin-top:40px}
+/* Only the start is keyframed, so once a section has landed it carries no filter
+   at all: iOS Safari can leave the last blurred frame on screen if one lingers. */
 .folio .stack > *{
-  opacity:0;transform:translateY(20px);filter:blur(12px);
-  animation:folio-in .5s cubic-bezier(.25,.46,.45,.94) forwards;
+  animation:folio-in .5s cubic-bezier(.25,.46,.45,.94) backwards;
   animation-delay:calc(200ms + var(--i,0) * 100ms);
 }
-@keyframes folio-in{to{opacity:1;transform:none;filter:none}}
+@keyframes folio-in{from{opacity:0;transform:translateY(20px);filter:blur(12px)}}
 
 .folio .intro{gap:20px}
 .folio .avatar{width:48px;height:48px;border-radius:9999px;object-fit:cover}
