@@ -28,7 +28,7 @@ export const intro = {
   /** The company logos sit between these two halves. */
   now: [
     "Currently building at ",
-    "Pantech Dynamics and Pandar. Previously worked with Lumofy, TradeHub, Magicpitch, and ",
+    "Pantech Dynamics and Pandar. Previously worked with SaveCircle, Lumofy, TradeHub, Magicpitch, and ",
   ],
 };
 
@@ -121,10 +121,10 @@ export const record = [
     org: "SaveCircle",
     where: "United States. Remote",
     seat: "Software & DevOps Engineer",
-    dates: "Jun 2024 – Present",
+    dates: "Jun 2024 – Dec 2025",
     start: "2024-06",
     stack: "TypeScript, NestJS, AWS",
-    current: true,
+    current: false,
   },
   {
     org: "Lumofy",
@@ -345,7 +345,7 @@ export const systems: System[] = [
     id: "savecircle",
     title: "SaveCircle",
     kind: "SaaS platform",
-    body: "A collaborative savings platform where a group pools money and members take the pot in turn. I am building the MVP backend from the schema up: data model, API surface, and the AWS infrastructure and storage underneath as the product grows.",
+    body: "A collaborative savings platform where a group pools money and members take the pot in turn. I built the MVP backend from the schema up: data model, API surface, and the AWS infrastructure and storage underneath as the product grew.",
     spec: [
       { b: "Own", t: "Schema design, API implementation, infrastructure" },
       { b: "Shape", t: "Rotating contribution cycles, membership, payouts" },
@@ -353,7 +353,7 @@ export const systems: System[] = [
     ],
     chips: ["TypeScript", "NestJS", "AWS"],
     role: "Software and DevOps",
-    when: "Jun 2024 to April 2025",
+    when: "Jun 2024 to Dec 2025",
   },
   {
     id: "frowork",
